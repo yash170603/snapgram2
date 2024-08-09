@@ -135,7 +135,7 @@ const UpdateProfile = () => {
                       type="text"
                       className="shad-input"
                       {...field}
-                      
+                      disabled
                     />
                   </FormControl>
                   <FormMessage />
