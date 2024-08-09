@@ -2,7 +2,7 @@ import * as z from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useNavigate, useParams } from "react-router-dom";
-
+import { useEffect } from "react";
 import {
   Form,
   FormControl,
@@ -49,6 +49,19 @@ const UpdateProfile = () => {
         <Loader />
       </div>
     );
+
+  useEffect(() => {
+  const savedData = localStorage.getItem('formData');
+  if (savedData) {
+    const parsedData = JSON.parse(savedData);
+    form.reset(parsedData);
+  }
+}, []);
+
+useEffect(() => {
+  localStorage.setItem('formData', JSON.stringify(form.getValues()));
+}, [form.getValues()]);
+
 
   // Handler
   const handleUpdate = async (value: z.infer<typeof ProfileValidation>) => {
