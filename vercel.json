@@ -13,6 +13,10 @@
     {
       "source": "/api/:path*",
       "destination": "https://cloud.appwrite.io/v1/:path*"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
     }
   ]
 }
