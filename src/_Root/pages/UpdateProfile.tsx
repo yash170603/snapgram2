@@ -20,6 +20,7 @@ import FileUploader from "@/components/shared/FileUploader";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
+import { useEffect } from "react";
 
 
 const UpdateProfile = () => {
@@ -49,6 +50,19 @@ const UpdateProfile = () => {
         <Loader />
       </div>
     );
+
+    useEffect(() => {
+      const savedData = localStorage.getItem('formData');
+      if (savedData) {
+        const parsedData = JSON.parse(savedData);
+        form.reset(parsedData);
+      }
+    }, []);
+    
+    useEffect(() => {
+      localStorage.setItem('formData', JSON.stringify(form.getValues()));
+    }, [form.getValues()]);
+    
 
   // Handler
   const handleUpdate = async (value: z.infer<typeof ProfileValidation>) => {
@@ -135,6 +149,7 @@ const UpdateProfile = () => {
                       type="text"
                       className="shad-input"
                       {...field}
+                      disabled
                       
                     />
                   </FormControl>

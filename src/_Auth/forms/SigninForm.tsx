@@ -55,7 +55,7 @@ const SignInForm = () => {
 
     if (!session) {
       return toast({
-        title: "Sign in after signing up failed. Please try again ",
+        title: "Cannot sign in Please try again ",
       });
     }
 

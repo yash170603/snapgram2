@@ -28,7 +28,7 @@ const PostDetails = () => {
           <div className="post_details-info">
             <div className="flex-between w-full">
               <Link
-                to={`/profile/${post?.creator.$id}`}
+                to={`/profile/${post?.creator?.$id}`}
                 className="flex items-center gap-3"
               >
                 <img
@@ -42,7 +42,7 @@ const PostDetails = () => {
 
                 <div className="flex flex-col">
                   <p className="base-medium lg:body-bold text-light-1">
-                    {post?.creator.name}
+                    {post?.creator?.name}
                   </p>
                 </div>
                 <div className="flex-center  gap-2  text-light-3">
@@ -59,7 +59,7 @@ const PostDetails = () => {
               <div className="flex-center gap-4">
                 <Link
                   to={`/update-post/${id}`}
-                  className={`${user.id !== post?.creator.$id && "hidden"}`}
+                  className={`${user?.id !== post?.creator?.$id && "hidden"}`}
                 >
                   <img
                     src="/assets/icons/edit.svg"
@@ -72,7 +72,7 @@ const PostDetails = () => {
                   onClick={handleDeletePost}
                   variant="ghost"
                   className={`ghost_details-delete_btn ${
-                    user.id !== post?.creator.$id && "hidden"
+                    user.id !== post?.creator?.$id && "hidden"
                   }`}
                 >
                   <img
