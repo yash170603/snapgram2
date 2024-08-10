@@ -2,7 +2,7 @@ import * as z from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useNavigate, useParams } from "react-router-dom";
-
+ 
 import {
   Form,
   FormControl,
@@ -51,6 +51,7 @@ const UpdateProfile = () => {
       </div>
     );
 
+<<<<<<< HEAD
     useEffect(() => {
       const savedData = localStorage.getItem('formData');
       if (savedData) {
@@ -63,6 +64,9 @@ const UpdateProfile = () => {
       localStorage.setItem('formData', JSON.stringify(form.getValues()));
     }, [form.getValues()]);
     
+=======
+ 
+>>>>>>> c8462c3ded2ffbb1d2525a9dbb9005c180e040e5
 
   // Handler
   const handleUpdate = async (value: z.infer<typeof ProfileValidation>) => {
@@ -150,7 +154,10 @@ const UpdateProfile = () => {
                       className="shad-input"
                       {...field}
                       disabled
+<<<<<<< HEAD
                       
+=======
+>>>>>>> c8462c3ded2ffbb1d2525a9dbb9005c180e040e5
                     />
                   </FormControl>
                   <FormMessage />
