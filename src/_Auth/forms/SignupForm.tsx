@@ -20,8 +20,7 @@ import {
 } from "@/lib/react-query/queriesAndMutations";
 import { useUserContext } from "@/context/AuthContext";
 import { Loader } from "lucide-react";
-import { setTimeout } from "timers/promises";
-import { totalmem } from "os";
+
 
 const SignupForm = () => {
   const { toast } = useToast();
