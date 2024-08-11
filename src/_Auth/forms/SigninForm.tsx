@@ -55,7 +55,7 @@ const SignInForm = () => {
 
     if (!session) {
       return toast({
-        title: "Cannot sign in Please try again ",
+        title: "Cannot sign in Please try again or Check your credentials ",
       });
     }
 
@@ -64,7 +64,7 @@ const SignInForm = () => {
       formMethods.reset();
       navigate("/");
     } else {
-      toast({ title: "Signup falied. Please try again" });
+      toast({ title: "SignIn falied. Please try again" });
     }
   }
 

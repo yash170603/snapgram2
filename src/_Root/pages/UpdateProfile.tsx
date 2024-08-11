@@ -51,22 +51,7 @@ const UpdateProfile = () => {
       </div>
     );
 
-<<<<<<< HEAD
-    useEffect(() => {
-      const savedData = localStorage.getItem('formData');
-      if (savedData) {
-        const parsedData = JSON.parse(savedData);
-        form.reset(parsedData);
-      }
-    }, []);
-    
-    useEffect(() => {
-      localStorage.setItem('formData', JSON.stringify(form.getValues()));
-    }, [form.getValues()]);
-    
-=======
- 
->>>>>>> c8462c3ded2ffbb1d2525a9dbb9005c180e040e5
+
 
   // Handler
   const handleUpdate = async (value: z.infer<typeof ProfileValidation>) => {
@@ -153,11 +138,6 @@ const UpdateProfile = () => {
                       type="text"
                       className="shad-input"
                       {...field}
-                      disabled
-<<<<<<< HEAD
-                      
-=======
->>>>>>> c8462c3ded2ffbb1d2525a9dbb9005c180e040e5
                     />
                   </FormControl>
                   <FormMessage />

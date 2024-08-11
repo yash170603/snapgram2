@@ -20,6 +20,8 @@ import {
 } from "@/lib/react-query/queriesAndMutations";
 import { useUserContext } from "@/context/AuthContext";
 import { Loader } from "lucide-react";
+import { setTimeout } from "timers/promises";
+import { totalmem } from "os";
 
 const SignupForm = () => {
   const { toast } = useToast();
@@ -44,20 +46,24 @@ const SignupForm = () => {
 
   async function onSubmit(values: z.infer<typeof SignupValidation>) {
     const newUser = await createUserAccount(values);
-    if (!newUser) {
-      return toast({
-        title: "Signup falied please tryy again",
-      });
-    }
+        
+     
+      if (newUser == null) {
+        return   toast({title:"Please try signing up again"})
+          
+      } 
+      
+     
 
     const session = await signInAccount({
       email: values.email,
       password: values.password,
     });
+    
 
     if (!session) {
       return toast({
-        title: "Sign in after signing up failed. Please try again ",
+        title: "Sign in during session creation failed. Please try again ",
       });
     }
 
